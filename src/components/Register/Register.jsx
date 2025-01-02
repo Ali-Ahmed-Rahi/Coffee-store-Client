@@ -3,40 +3,44 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
 
-  const {createUser}=useContext(AuthContext)
-
-  const handleRegister=e=>{
-    e.preventDefault()
-    const from=e.target
-    const email=from.email.value
-    const password=from.password.value
-    const confirmPassword=from.confirmPassword.value
-    console.log(email,password,confirmPassword);
-    createUser(email,password,confirmPassword)
-    .then(res=>{
-      console.log(res.user);
-      const createdTime=res.user?.metadata?.creationTime;
-      const user={email,createdAt:createdTime}
-      fetch('http://localhost:5000/user',{
-        method:'POST',
-        headers:{
-          'content-type':'application/json'
-        },
-        body:JSON.stringify(user)
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const from = e.target;
+    const email = from.email.value;
+    const password = from.password.value;
+    const confirmPassword = from.confirmPassword.value;
+    console.log(email, password, confirmPassword);
+    createUser(email, password, confirmPassword)
+      .then((res) => {
+        console.log(res.user);
+        const createdTime = res.user?.metadata?.creationTime;
+        const user = { email, createdAt: createdTime };
+        fetch("https://coffee-store-server-lrpi.vercel.app//user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => console.log(data));
       })
-      .then(res=>res.json())
-      .then(data=>console.log(data))
-    })
-    .catch(error =>{
-      console.log(error);
-    })
-  }
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="lg:pt-32 pt-7 p-2">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-[#331A15] mx-auto">
         <h1 className="text-2xl font-bold text-center">Register</h1>
-        <form onSubmit={handleRegister} noValidate="" action="" className="space-y-6">
+        <form
+          onSubmit={handleRegister}
+          noValidate=""
+          action=""
+          className="space-y-6"
+        >
           <div className="space-y-1 text-sm">
             <label htmlFor="username" className="block text-white">
               Email
@@ -60,7 +64,6 @@ const Register = () => {
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-default-600"
             />
-            
           </div>
           <div className="space-y-1 text-sm">
             <label htmlFor="password" className="block text-white">
@@ -73,7 +76,6 @@ const Register = () => {
               placeholder="Confirm Password"
               className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-default-600"
             />
-            
           </div>
           <div className="flex items-center">
             <input type="checkbox" name="checkbox" id="" />
@@ -85,7 +87,9 @@ const Register = () => {
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
-          <p className="px-3 text-sm text-white">Register with social accounts</p>
+          <p className="px-3 text-sm text-white">
+            Register with social accounts
+          </p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
         </div>
         <div className="flex justify-center space-x-4">
@@ -120,7 +124,7 @@ const Register = () => {
         <p className="text-xs text-center sm:px-6 text-white">
           Already have an account?
           <Link
-          to='/login'
+            to="/login"
             rel="noopener noreferrer"
             href="#"
             className="underline text-blue-600 font-bold mx-1"

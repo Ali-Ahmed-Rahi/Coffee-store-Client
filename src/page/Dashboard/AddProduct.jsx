@@ -18,7 +18,7 @@ const AddProduct = () => {
 
     // sand data to the server
 
-    fetch("http://localhost:5000/coffee", {
+    fetch("https://coffee-store-server-lrpi.vercel.app//coffee", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -26,25 +26,31 @@ const AddProduct = () => {
       body: JSON.stringify(newCoffee),
     })
       .then((res) => res.json())
-      .then((data) => {console.log(data)
-      if (data.insertedId) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Product Add SuccessFully",
-          showConfirmButton: false,
-          timer: 1500
-        
-        });
-        
-      }
-      from.reset()
-  });
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Product Add SuccessFully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+        from.reset();
+      });
   };
   return (
     <div>
       <div>
-        <Link to='/' className="btn rounded-3xl mx-28 text-amber-950 bg-[#F1E6C6] hover:bg-white font-semibold"> <FaArrowLeft />Back to Home</Link>
+        <Link
+          to="/"
+          className="btn rounded-3xl mx-28 text-amber-950 bg-[#F1E6C6] hover:bg-white font-semibold"
+        >
+          {" "}
+          <FaArrowLeft />
+          Back to Home
+        </Link>
       </div>
       <div className="bg-[#F3F3F3] p-10 rounded-lg lg:shadow-2xl lg:w-5/6 mx-auto mt-5 lg:mt-3 text-amber-950">
         <h2 className="text-2xl font-bold text-center mb-4">Add New Coffee</h2>
