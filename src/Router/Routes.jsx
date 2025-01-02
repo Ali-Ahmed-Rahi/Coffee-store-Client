@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
         path: "/products",
         element: <Products></Products>,
         loader: () =>
-          fetch("https://coffee-store-server-lrpi.vercel.app//coffee"),
+          fetch("https://coffee-store-server-lrpi.vercel.app/coffee"),
       },
 
       {
@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
         element: <DetailsProduct></DetailsProduct>,
         loader: ({ params }) =>
           fetch(
-            `https://coffee-store-server-lrpi.vercel.app//coffee/${params.id}`
+            `https://coffee-store-server-lrpi.vercel.app/coffee/${params.id}`
           ),
       },
       {
@@ -75,7 +75,7 @@ export const router = createBrowserRouter([
         path: "/dashboard/allProducts",
         element: <AllProduct></AllProduct>,
         loader: () =>
-          fetch("https://coffee-store-server-lrpi.vercel.app//coffee"),
+          fetch("https://coffee-store-server-lrpi.vercel.app/coffee"),
       },
       {
         path: "/dashboard/addProduct",
@@ -86,7 +86,7 @@ export const router = createBrowserRouter([
         element: <UpdateProduct></UpdateProduct>,
         loader: ({ params }) =>
           fetch(
-            `https://coffee-store-server-lrpi.vercel.app//coffee/${params.id}`
+            `https://coffee-store-server-lrpi.vercel.app/coffee/${params.id}`
           ),
       },
     ],

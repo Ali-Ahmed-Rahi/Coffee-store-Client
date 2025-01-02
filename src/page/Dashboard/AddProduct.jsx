@@ -18,7 +18,7 @@ const AddProduct = () => {
 
     // sand data to the server
 
-    fetch("https://coffee-store-server-lrpi.vercel.app//coffee", {
+    fetch("https://coffee-store-server-lrpi.vercel.app/coffee", {
       method: "POST",
       headers: {
         "content-type": "application/json",

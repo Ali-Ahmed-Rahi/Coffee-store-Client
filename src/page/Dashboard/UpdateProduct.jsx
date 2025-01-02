@@ -27,7 +27,7 @@ const UpdateProduct = () => {
     // console.log(upDateCoffee);
 
     // sand data to the server
-    fetch(`https://coffee-store-server-lrpi.vercel.app//coffee/${_id}`, {
+    fetch(`https://coffee-store-server-lrpi.vercel.app/coffee/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
