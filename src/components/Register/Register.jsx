@@ -17,7 +17,7 @@ const Register = () => {
         console.log(res.user);
         const createdTime = res.user?.metadata?.creationTime;
         const user = { email, createdAt: createdTime };
-        fetch("https://coffee-store-server-lrpi.vercel.app/user", {
+        fetch("https://coffee-store-server-flame-two.vercel.app/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

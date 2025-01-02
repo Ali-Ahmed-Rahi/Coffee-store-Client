@@ -7,7 +7,7 @@ const PopularProduct = () => {
 
   useEffect(() => {
     axios
-      .get("https://coffee-store-server-lrpi.vercel.app/coffee")
+      .get("https://coffee-store-server-flame-two.vercel.app/coffee")
       .then((data) => setCoffees(data.data));
   }, []);
   return (
