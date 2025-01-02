@@ -5,21 +5,28 @@ import { IoIosContact } from "react-icons/io";
 const Navbar = () => {
   const nav = (
     <>
-      <NavLink to='/'>
+      <NavLink to="/">
         <p>Home</p>
       </NavLink>
-      <NavLink to='/products'>
+      <NavLink to="/products">
         <p>Products</p>
       </NavLink>
-      
+      <NavLink to="/aboutus">
+        <p>About Us</p>
+      </NavLink>
+      <NavLink to="/blog">
+        <p>Blog</p>
+      </NavLink>
+      <NavLink to="/contactus">
+        <p>Contact Us</p>
+      </NavLink>
     </>
   );
 
-  
   return (
     <>
       <div
-        className="navbar bg-cover bg-center bg-no-repeat text-white"
+        className="navbar bg-cover bg-center bg-no-repeat text-white fixed z-10 top-0 "
         style={{ backgroundImage: `url(${img})` }}
       >
         <div className="navbar-start">
@@ -42,7 +49,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-[#331A15] rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3 font-semibold"
+              className="menu menu-sm dropdown-content bg-[#331A15] rounded-box z-[1] mt-3 w-52 p-6 shadow gap-3 font-semibold"
             >
               {nav}
             </ul>
@@ -65,12 +72,17 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-[#331A15] rounded-box z-[1] w-52 p-5 shadow mt-3 font-semibold"
+              className="dropdown-content menu bg-[#331A15] rounded-box z-[1] w-52 p-5 shadow mt-3 font-semibold space-y-4 "
             >
-              <NavLink to='/dashboard'>
+              <NavLink to="/dashboard">
                 <p>DashBoard</p>
               </NavLink>
-              
+              <NavLink to="/login">
+                <p>Login</p>
+              </NavLink>
+              <NavLink to="/register">
+                <p>Register</p>
+              </NavLink>
             </ul>
           </div>
         </div>

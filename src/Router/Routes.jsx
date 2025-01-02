@@ -6,7 +6,13 @@ import UpdateProduct from "../page/Dashboard/UpdateProduct";
 import AllProduct from "../page/Dashboard/AllProduct";
 import Home from "../page/Home/Home";
 import Products from "../page/Home/Products";
-
+import Register from "../components/Register/Register";
+import Login from "../components/Login/Login";
+import DetailsProduct from "../components/Products/DetailsProduct";
+import PopularProduct from "../components/Home/PopularProduct";
+import About from "../page/Home/About";
+import Blog from "../page/Home/Blog";
+import ContactUs from "../page/Home/ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -16,11 +22,45 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        children: [
+          {
+            path: "/",
+            element: <PopularProduct></PopularProduct>,
+          },
+        ],
       },
+
       {
         path: "/products",
         element: <Products></Products>,
         loader: () => fetch("http://localhost:5000/coffee"),
+      },
+
+      {
+        path: "/detailsProduct/:id",
+        element: <DetailsProduct></DetailsProduct>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/coffee/${params.id}`),
+      },
+      {
+        path: "/aboutus",
+        element: <About></About>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/contactus",
+        element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },
@@ -40,7 +80,8 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/upDateProduct/:id",
         element: <UpdateProduct></UpdateProduct>,
-        loader:({params})=>fetch(`http://localhost:5000/coffee/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/coffee/${params.id}`),
       },
     ],
   },

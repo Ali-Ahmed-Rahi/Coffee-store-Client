@@ -9,7 +9,7 @@ const DashBoard = () => {
         <div className="col-span-2">
           <Sidebar></Sidebar>
         </div>
-        <div className=" min-h-screen col-span-10 p-4 bg-cover bg-white bg-repeat mt-10 lg:mt-0" style={{backgroundImage:`url(${bg})`}}>
+        <div className=" min-h-screen col-span-10 p-4 bg-cover bg-white bg-repeat mt-10 lg:mt-0 bg-fixed" style={{backgroundImage:`url(${bg})`}}>
           <Outlet></Outlet>
         </div>
       </div>

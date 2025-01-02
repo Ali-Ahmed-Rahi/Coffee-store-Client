@@ -1,3 +1,5 @@
+import { FaArrowLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddProduct = () => {
@@ -27,7 +29,7 @@ const AddProduct = () => {
       .then((data) => {console.log(data)
       if (data.insertedId) {
         Swal.fire({
-          position: "top-end",
+          position: "center",
           icon: "success",
           title: "Product Add SuccessFully",
           showConfirmButton: false,
@@ -41,6 +43,9 @@ const AddProduct = () => {
   };
   return (
     <div>
+      <div>
+        <Link to='/' className="btn rounded-3xl mx-28 text-amber-950 bg-[#F1E6C6] hover:bg-white font-semibold"> <FaArrowLeft />Back to Home</Link>
+      </div>
       <div className="bg-[#F3F3F3] p-10 rounded-lg lg:shadow-2xl lg:w-5/6 mx-auto mt-5 lg:mt-3 text-amber-950">
         <h2 className="text-2xl font-bold text-center mb-4">Add New Coffee</h2>
         <p className="text-center text-gray-600 mb-6">
@@ -138,7 +143,7 @@ const AddProduct = () => {
           </div>
           <button
             type="submit"
-            className="block bg-[#D2B48C] text-amber-950 text-lg font-medium py-3 px-6 rounded-md mx-auto hover:bg-[#b59874] w-full"
+            className="block bg-[#D2B48C] text-amber-950 text-lg font-medium py-3 px-6 rounded-md mx-auto hover:bg-white w-full"
           >
             Add Coffee
           </button>
